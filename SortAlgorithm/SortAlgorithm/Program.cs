@@ -20,7 +20,7 @@ namespace SortAlgorithm
                 array[i] = random.Next(1, 100);
             }
 
-            ISort sorter = new Insert();
+            ISort sorter = new Bubble();
 
             sorter.Sort(array);       
         }

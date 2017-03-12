@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SortAlgorithm
 {
-    class Insert : Output, ISort
+    class Insert : Sorter, ISort
     {
         public void Sort(int[] array)
         {

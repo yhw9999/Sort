@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SortAlgorithm.Swap
 {
-    class Selection : Output, ISort
+    class Selection : Sorter, ISort
     {
         public void Sort(int[] array)
         {
@@ -42,16 +42,6 @@ namespace SortAlgorithm.Swap
             }
 
             Write(array);
-
-        }
-
-        private void Swap(int[] array, int count, int index)
-        {
-            int tmp = array[count];
-
-            array[count] = array[index];
-
-            array[index] = tmp;
         }
     }
 }
