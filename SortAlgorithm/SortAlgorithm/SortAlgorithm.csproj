@@ -48,6 +48,7 @@
     <Compile Include="ISort.cs" />
     <Compile Include="Sorter.cs" />
     <Compile Include="Swap\Bubble.cs" />
+    <Compile Include="Swap\Quick.cs" />
     <Compile Include="Swap\Selection.cs" />
   </ItemGroup>
   <ItemGroup>
