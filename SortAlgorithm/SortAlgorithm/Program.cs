@@ -11,9 +11,18 @@ namespace SortAlgorithm
     {
         static void Main(string[] args)
         {
-            ISort sorter = new Selection();
+            Random random = new Random();
 
-            sorter.Sort();       
+            int[] array = new int[5];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(1, 100);
+            }
+
+            ISort sorter = new Insert();
+
+            sorter.Sort(array);       
         }
     }
 }

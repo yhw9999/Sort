@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace SortAlgorithm.Swap
 {
-    class Selection : ISort
+    class Selection : Output, ISort
     {
-        public void Sort()
+        public void Sort(int[] array)
         {
-            int[] array = new int[20];
-
-            Random random = new Random();
-
             int minimum = int.MaxValue;
 
             int index = 0;
@@ -22,14 +18,7 @@ namespace SortAlgorithm.Swap
 
             bool complete;
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = random.Next(1, 50);
-
-                Console.Write(array[i] + "  ");
-            }
-            Console.WriteLine();
-
+            Write(array);
 
             while (true)
             {
@@ -52,10 +41,8 @@ namespace SortAlgorithm.Swap
                 Swap(array, count++, index);
             }
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write(array[i] + "  ");
-            }
+            Write(array);
+
         }
 
         private void Swap(int[] array, int count, int index)
