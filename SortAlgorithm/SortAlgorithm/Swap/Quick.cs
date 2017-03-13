@@ -41,12 +41,54 @@ namespace SortAlgorithm.Swap
             else
             {
                 //make a pivot number
-                int pivot = (leftIndex + rightIndex) / 2;
+                int pivot = random.Next(leftIndex+1, rightIndex-1);
 
                 int left = leftIndex;
                 int right = rightIndex;
 
-             
+                while (true)
+                {
+                    while (!(array[left] > array[pivot]) && left < right)
+                    {
+                        left++;
+                    }
+
+                    if (left + 1 == right)
+                    {
+                        if (array[pivot] > array[left])
+                        {
+                            Swap(array, left, pivot);
+
+                            //left
+                            QuickSort(array, leftIndex, pivot);
+                            //right
+                            QuickSort(array, pivot+1, rightIndex);
+                            break;
+                        }
+                    }
+
+                    while (!(array[right] < array[pivot]) && left < right)
+                    {
+                        right--;
+                    }
+
+                    if (right - 1 == left)
+                    {
+                        if (array[pivot] < array[right])
+                        {
+                            Swap(array, right, pivot);
+
+                            //left
+                            QuickSort(array, leftIndex, pivot-1);
+                            //right
+                            QuickSort(array, pivot, rightIndex);
+
+                            break;
+                        }
+                    }
+
+                    Swap(array, left, right);
+                }
             }
         }
     }
