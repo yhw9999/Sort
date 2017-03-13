@@ -8,13 +8,46 @@ namespace SortAlgorithm.Swap
 {
     class Quick : Sorter, ISort
     {
+        Random random = new Random();
+
         public void Sort(int[] array)
         {
-            int frontPrimary = array[0];
-            int backPrimary = array[array.Length];
+            Write(array);
 
+            int leftIndex = 0;
+            int rightIndex = array.Length - 1;
 
-            
+            QuickSort(array, leftIndex, rightIndex);
+
+            Write(array);
+        }
+
+        private void QuickSort(int[] array, int leftIndex, int rightIndex)
+        {
+            int gap = rightIndex - leftIndex;
+
+            if (gap < 3)
+            {
+                if (gap == 1)
+                {
+                    if (array[leftIndex] > array[rightIndex])
+                    {
+                        Swap(array, leftIndex, rightIndex);
+                    }
+                }
+
+                return;
+            }
+            else
+            {
+                //make a pivot number
+                int pivot = (leftIndex + rightIndex) / 2;
+
+                int left = leftIndex;
+                int right = rightIndex;
+
+             
+            }
         }
     }
 }

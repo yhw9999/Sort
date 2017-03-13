@@ -13,14 +13,14 @@ namespace SortAlgorithm
         {
             Random random = new Random();
 
-            int[] array = new int[5];
+            int[] array = new int[10];
 
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = random.Next(1, 100);
             }
 
-            ISort sorter = new Bubble();
+            ISort sorter = new Quick();
 
             sorter.Sort(array);       
         }

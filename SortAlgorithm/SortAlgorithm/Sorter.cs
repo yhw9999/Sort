@@ -2,7 +2,7 @@
 
 namespace SortAlgorithm
 {
-    internal class Sorter
+    class Sorter
     {
         protected void Write(int[] array)
         {
@@ -21,5 +21,7 @@ namespace SortAlgorithm
 
             array[index2] = tmp;
         }
+
+        
     }
 }
