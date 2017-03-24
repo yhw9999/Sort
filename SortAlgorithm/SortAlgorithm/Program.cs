@@ -13,11 +13,11 @@ namespace SortAlgorithm
         {
             Random random = new Random();
 
-            int[] array = new int[10];
+            int[] array = new int[20];
 
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = random.Next(1, 100);
+                array[i] = random.Next(1, array.Length);
             }
 
             ISort sorter = new Quick();

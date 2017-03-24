@@ -22,72 +22,101 @@ namespace SortAlgorithm.Swap
             Write(array);
         }
 
+        void SwapAndSetPivot(int[] array, int index, ref int pivot)
+        {
+            if (index > pivot)
+	        {
+                if (array[index] <= array[pivot])
+	            {
+                    Swap(array, index, pivot);
+
+                    pivot = index;
+	            }
+	        }
+            else if (index < pivot)
+	        {
+                if (array[index] >= array[pivot])
+	            {
+                    Swap(array, index, pivot);
+
+                    pivot = index;
+	            }
+	        }
+        }
+
         private void QuickSort(int[] array, int leftIndex, int rightIndex)
         {
-            int gap = rightIndex - leftIndex;
+            int gap = rightIndex - leftIndex + 1;
 
-            if (gap < 3)
+            if (gap == 2)
             {
-                if (gap == 1)
-                {
                     if (array[leftIndex] > array[rightIndex])
                     {
                         Swap(array, leftIndex, rightIndex);
                     }
-                }
 
                 return;
             }
-            else
+            else if(gap > 1)
             {
                 //make a pivot number
-                int pivot = random.Next(leftIndex+1, rightIndex-1);
+                int pivot = random.Next(leftIndex, rightIndex);
+
+                Swap(array, pivot, rightIndex);
+
+                pivot = rightIndex;
 
                 int left = leftIndex;
-                int right = rightIndex;
+                int right = rightIndex - 1;
 
                 while (true)
                 {
-                    while (!(array[left] > array[pivot]) && left < right)
-                    {
+                    while (array[left] <= array[pivot] && left < right)
+	                {
                         left++;
-                    }
+	                }
 
-                    if (left + 1 == right)
+                    if (left == right)
                     {
-                        if (array[pivot] > array[left])
-                        {
+                        if (array[left] >= array[pivot])
+	                    {
                             Swap(array, left, pivot);
+	                    }
 
-                            //left
-                            QuickSort(array, leftIndex, pivot);
-                            //right
-                            QuickSort(array, pivot+1, rightIndex);
-                            break;
-                        }
+                        pivot = left;
+                        //left
+                        QuickSort(array, leftIndex, pivot);
+                        //right
+                        QuickSort(array, pivot+1, rightIndex);
+
+                        break;
                     }
 
-                    while (!(array[right] < array[pivot]) && left < right)
-                    {
+                    while (array[right] >= array[pivot] && left < right)
+	                {
                         right--;
-                    }
+	                }
 
-                    if (right - 1 == left)
+                    if (left == right)
                     {
-                        if (array[pivot] < array[right])
-                        {
+                        if (array[right] > array[pivot])
+	                    {
                             Swap(array, right, pivot);
+	                    }
 
-                            //left
-                            QuickSort(array, leftIndex, pivot-1);
-                            //right
-                            QuickSort(array, pivot, rightIndex);
 
-                            break;
-                        }
+                        pivot = right;
+
+                        //left
+                        QuickSort(array, leftIndex, pivot);
+                        //right
+                        QuickSort(array, pivot+1, rightIndex);
+
+                        break;
                     }
 
                     Swap(array, left, right);
+
                 }
             }
         }
