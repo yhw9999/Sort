@@ -1,44 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SortAlgorithm
 {
-    class Insert : Sorter, ISort
+    public class Insert : Sorter, ISort
     {
         public void Sort(int[] array)
         {
             Write(array);
 
-            //main loop
-            for (int totalCount = 1; totalCount < array.Length; totalCount++)
+            InsertSort(array);
+
+            Write(array);
+        }
+
+        protected void InsertSort(int[] array, int gap=1, int startIndex = 0)
+        {
+            for (int mainIndex = startIndex; mainIndex < array.Length; mainIndex+= gap)
             {
-                //find index
-                for (int index = 0; index < totalCount; index++)
+                try
                 {
-                    if (array[index] > array[totalCount])
+                    if (array[mainIndex] > array[mainIndex + gap])
                     {
-                        InsertNumber(array, index, totalCount);
+                        InsertNumber(array, mainIndex, startIndex,gap);
                     }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Over range");
                 }
             }
 
-            Write(array);
-
+            //main loop
+            //for (int totalCount = startIndex; totalCount < array.Length; totalCount += gap)
+            //{
+            //    //find index
+            //    for (int index = startIndex+gap; index < totalCount; index += gap)
+            //    {
+            //        if (array[index] > array[totalCount])
+            //        {
+            //            InsertNumber(array, index, totalCount, gap);
+            //        }
+            //    }
+            //}
         }
 
-        private void InsertNumber(int[] array, int index, int totalCount)
+        protected void InsertNumber(int[] array, int index, int startIndex, int gap)
         {
-            int tmp = array[totalCount];
+            //backup value
+            int tmp = array[index+gap];
 
-            for (int i = totalCount-1; i > index-1; i--)
+            int findIndex = startIndex;
+
+            for (int i = startIndex; i <= index; i+= gap)
             {
-                array[i + 1] = array[i];
+                if (tmp <= array[i])
+                {
+                    findIndex = i;
+
+                    break;
+                }
             }
 
-            array[index] = tmp;
+            for (int i = index+gap; i > findIndex; i-=gap)
+            {
+                array[i] = array[i - gap];
+            }
+
+            array[findIndex] = tmp;
         }
     }
 }

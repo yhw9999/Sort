@@ -12,7 +12,7 @@ namespace SortAlgorithm
         static void Main(string[] args)
         {
             Random random = new Random();
-
+            
             int[] array = new int[20];
 
             for (int i = 0; i < array.Length; i++)
@@ -20,9 +20,13 @@ namespace SortAlgorithm
                 array[i] = random.Next(1, array.Length);
             }
 
-            ISort sorter = new Quick();
+            ISort sorter = new Shell();
 
-            sorter.Sort(array);       
+            DateTime start = DateTime.Now;
+
+            sorter.Sort(array);
+
+            Console.WriteLine((DateTime.Now - start).ToString());
         }
     }
 }

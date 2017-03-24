@@ -2,7 +2,7 @@
 
 namespace SortAlgorithm
 {
-    class Sorter
+    public class Sorter
     {
         protected void Write(int[] array)
         {
