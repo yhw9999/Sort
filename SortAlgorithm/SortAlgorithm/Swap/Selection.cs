@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SortAlgorithm.Swap
+namespace SortAlgorithm
 {
-    class Selection : Sorter, ISort
+    class Selection : Sorter, ISorter
     {
         public void Sort(int[] array)
         {

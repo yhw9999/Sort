@@ -9,7 +9,7 @@ namespace SortAlgorithm
     /// <summary>
     /// Appication InsertSort Algorithm
     /// </summary>
-    public class Shell : Insert, ISort
+    public class Shell : Insert, ISorter
     {
         public new void Sort(int[] array)
         {

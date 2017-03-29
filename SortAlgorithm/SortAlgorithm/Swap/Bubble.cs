@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SortAlgorithm
 {
-    class Bubble : Sorter, ISort
+    class Bubble : Sorter, ISorter
     {
         public void Sort(int[] array)
         {

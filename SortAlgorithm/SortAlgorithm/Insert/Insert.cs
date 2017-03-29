@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SortAlgorithm
 {
-    public class Insert : Sorter, ISort
+    public class Insert : Sorter, ISorter
     {
         public void Sort(int[] array)
         {

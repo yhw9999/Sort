@@ -1,9 +1,4 @@
-﻿using SortAlgorithm.Swap;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace SortAlgorithm
 {
@@ -20,7 +15,7 @@ namespace SortAlgorithm
                 array[i] = random.Next(1, array.Length);
             }
 
-            ISort sorter = new Shell();
+            ISorter sorter = new Merge();
 
             DateTime start = DateTime.Now;
 

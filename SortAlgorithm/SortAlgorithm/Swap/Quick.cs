@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SortAlgorithm.Swap
+namespace SortAlgorithm
 {
-    class Quick : Sorter, ISort
+    class Quick : Sorter, ISorter
     {
         Random random = new Random();
 
