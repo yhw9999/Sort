@@ -10,16 +10,16 @@ namespace SortAlgorithm
     {
         Random random = new Random();
 
-        public void Sort(int[] array)
+        public void Sort(ref int[] array)
         {
-            Write(array);
+            //Write(array);
 
             int leftIndex = 0;
             int rightIndex = array.Length - 1;
 
             QuickSort(array, leftIndex, rightIndex);
 
-            Write(array);
+            //Write(array);
         }
 
         void SwapAndSetPivot(int[] array, int index, ref int pivot)

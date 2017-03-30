@@ -9,7 +9,7 @@ namespace SortAlgorithm
 {
     public class Insert : Sorter, ISorter
     {
-        public void Sort(int[] array)
+        public void Sort(ref int[] array)
         {
             Write(array);
 

@@ -8,7 +8,7 @@ namespace SortAlgorithm
 {
     class Selection : Sorter, ISorter
     {
-        public void Sort(int[] array)
+        public void Sort(ref int[] array)
         {
             int minimum = int.MaxValue;
 

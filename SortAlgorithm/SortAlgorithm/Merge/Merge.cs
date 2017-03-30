@@ -10,7 +10,7 @@ namespace SortAlgorithm
     {
         //if the length of section is 1, merge and sort 
         //else divide section to half
-        public void Sort(int[] array)
+        public void Sort(ref int[] array)
         {
             Write(array);
 

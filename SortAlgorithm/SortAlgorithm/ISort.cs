@@ -8,6 +8,6 @@ namespace SortAlgorithm
 {
     interface ISorter
     {
-        void Sort(int[] array);
+        void Sort(ref int[] array);
     }
 }

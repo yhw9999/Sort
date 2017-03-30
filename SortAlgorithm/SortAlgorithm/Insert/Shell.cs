@@ -29,7 +29,7 @@ namespace SortAlgorithm
 
             //main loop
 
-            base.Sort(array);
+            base.Sort(ref array);
 
             Write(array);
         }
