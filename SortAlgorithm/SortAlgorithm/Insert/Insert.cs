@@ -24,9 +24,12 @@ namespace SortAlgorithm
             {
                 try
                 {
-                    if (array[mainIndex] > array[mainIndex + gap])
+                    if (mainIndex+gap < array.Length)
                     {
-                        InsertNumber(array, mainIndex, startIndex,gap);
+                        if (array[mainIndex] > array[mainIndex + gap])
+                        {
+                            InsertNumber(array, mainIndex, startIndex, gap);
+                        }
                     }
                 }
                 catch (Exception e)
